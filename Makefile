@@ -16,8 +16,10 @@ INCLUDE = -Iminilibx-linux -I .
 all : ${NAME}
 
 ${NAME} : ${OBJ}
+	make -C minilibx-linux all
 	${CC} ${CFLAGS} -I ./src ${SRC} -o ${NAME} ${MLX} ${INCLUDE}
 clean :
+	make -C minilibx-linux clean
 	rm -rf $(OBJ)
 fclean : clean
 	rm -rf $(NAME)
